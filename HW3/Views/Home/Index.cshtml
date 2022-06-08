@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    @ViewBag.Message;
+</div>
+
+<div class="row jumbotron">
+    
+    <div class="col-md-8">
+        <h2>Description</h2>
+        <p>
+            This is a media uploading system. Users will then be able to select the file on their computer which will
+            then be uploaded on submit of the form. files page must display a list of all the Files that a user has uploaded with the
+            functionality to delete and download the file.
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Option Select</h2>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+    <form>
+        <div class="form-group">
+            @Html.RadioButton("FileType", "Document")<span>Documents</span><br>
+        </div>
+        <div class="form-group">
+            @Html.RadioButton("FileType", "Image")<span>Images</span><br>
+        </div>
+        <div class="form-group form-check">
+            @Html.RadioButton("FileType", "Video")<span>Video</span><br>
+        </div>
+        <div class="form-group form-check">
+            <input type="file"  name="file" id="file">
+        </div>
+
+        @*/*
+
+                  
+        [HttpPost]
+        public ActionResult YourAction(string YourRadioButton)
+        {
+               Action Code 
+        }
+                    */*@
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+        }
+        </div>
+
+</div>
